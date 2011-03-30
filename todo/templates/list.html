@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+{% block content %}
+<ul>
+{% for object in objects %}
+    <li>{{ object.name }}
+        {% if object.completed %}(Completed)
+        {% else %}<a href="{% url todo.edit object.pk %}">Edit</a>
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>
+<p>
+    <a href="{% url todo.add %}">Add</a>
+</p>
+{% endblock %}
